@@ -1,4 +1,4 @@
-
+//MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db)=>{
 var express =require('express');
 var bodyParser = require('body-parser')
 
@@ -23,9 +23,19 @@ app.post('/todos', (req, res)=>{
     console.log(req.body);
 });
 
+app.get('/todos', (req, res)=>{
+    Todo.find().then((todos)=>{
+        res.send({todos});
+    }, (e)=>{
+        res.status(400).send(e);
+    })
+})
+
 app.listen(3000, ()=>{
     console.log('Server stared on port 3000')
 });
+
+module.exports = {app};
 
 
 
