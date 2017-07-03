@@ -20,7 +20,7 @@ app.post('/todos', (req, res)=>{
         res.status(400);
         res.send(e);
     });
-    console.log(req.body);
+    //console.log(req.body);
 });
 
 app.get('/todos', (req, res)=>{
