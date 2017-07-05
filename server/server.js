@@ -1,4 +1,5 @@
-//MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db)=>{
+require('./config/config');
+
 var _ = require('lodash');
 var express =require('express');
 var bodyParser = require('body-parser')
@@ -9,7 +10,7 @@ var {User} = require('./models/user');
 var {ObjectID} = require('mongodb');
 
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT;
 
 app.use(bodyParser.json());
 
